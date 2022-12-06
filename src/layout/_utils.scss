@@ -1,0 +1,56 @@
+.between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &.g0 {
+    gap: 0;
+  }
+
+  &.g1 {
+    gap: 1rem;
+  }
+
+  &.g2 {
+    gap: 1.5rem;
+  }
+}
+
+button {
+  border: none;
+  outline: none;
+  padding: 0.5rem 1.5rem;
+  color: #fff;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  &.red {
+    background: #c00;
+  }
+
+  &.green {
+    background: #080;
+  }
+
+  &.icon {
+    padding: 0.5rem 0.75rem;
+  }
+
+  &.hide {
+    visibility: hidden;
+  }
+}

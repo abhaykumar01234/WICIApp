@@ -1,23 +1,53 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
+import cx from "classnames";
 import "./global.scss";
+import { useGlobalCtx } from "../context/GlobalProvider";
 
 export const Layout = () => {
+  const { prevUrl, nextUrl } = useGlobalCtx();
+  const navigate = useNavigate();
+
   return (
     <div className="container">
       <header className="between">
-        <button className="red">Prev</button>
-        <div className="center">
+        <button
+          className={cx("red", { hide: !prevUrl })}
+          onClick={() => navigate(prevUrl || "/")}
+        >
+          Prev
+        </button>
+        <div className="inline g0">
           <img src="/bank.png" alt="logo" className="logo" /> <h1>Bank</h1>
         </div>
-        <button className="red">Next</button>
+        <div className="inline">
+          <button
+            className={cx("red", { hide: !nextUrl })}
+            onClick={() => navigate(nextUrl || "/")}
+          >
+            Next
+          </button>
+          <button className="red icon">|||</button>
+        </div>
       </header>
+
       <main>
         <Outlet />
       </main>
+
       <footer className="between">
-        <button className="red">Prev</button>
-        <button className="red">Next</button>
+        <button
+          className={cx("red", { hide: !prevUrl })}
+          onClick={() => navigate(prevUrl || "/")}
+        >
+          Prev
+        </button>
+        <button
+          className={cx("red", { hide: !nextUrl })}
+          onClick={() => navigate(nextUrl || "/")}
+        >
+          Next
+        </button>
       </footer>
     </div>
   );
