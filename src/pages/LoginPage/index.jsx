@@ -25,19 +25,19 @@ export const LoginPage = () => {
             </td>
           </tr>
           <tr>
-            <td>Store/Location Number</td>
+            <td>Store/Location No</td>
             <td>
               <input type="text" />
             </td>
           </tr>
           <tr>
-            <td>Employee First Name</td>
+            <td>Emp First Name</td>
             <td>
               <input type="text" />
             </td>
           </tr>
           <tr>
-            <td>Employee Last Name</td>
+            <td>Emp Last Name</td>
             <td>
               <input type="text" />
             </td>
