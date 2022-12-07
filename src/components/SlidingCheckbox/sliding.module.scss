@@ -19,7 +19,7 @@
     cursor: pointer;
 
     &:checked + label {
-      transform: translateX(-100px);
+      transform: translateX(0px);
     }
   }
 
@@ -28,6 +28,7 @@
     grid-template-columns: repeat(3, 1fr);
     width: 300px;
     pointer-events: none;
+    transform: translateX(-100px);
     transition: transform 200ms ease-in-out;
 
     & > div {

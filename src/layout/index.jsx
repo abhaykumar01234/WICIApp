@@ -6,6 +6,7 @@ import "./global.scss";
 const initialState = {
   prevUrl: null,
   nextUrl: null,
+  isLoggedIn: false,
 };
 
 const reducer = (state, action) => {
@@ -16,6 +17,18 @@ const reducer = (state, action) => {
         ...state,
         prevUrl,
         nextUrl,
+      };
+    }
+    case "LOGIN": {
+      return {
+        ...state,
+        isLoggedIn: true,
+      };
+    }
+    case "LOGOUT": {
+      return {
+        ...state,
+        isLoggedIn: false,
       };
     }
     default:
@@ -40,14 +53,23 @@ export const Layout = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { prevUrl, nextUrl } = state;
+  const { prevUrl, nextUrl, isLoggedIn } = state;
 
   const setHeader = ({ prevUrl, nextUrl }) =>
     dispatch({ type: "SET_HEADER", payload: { prevUrl, nextUrl } });
 
+  const login = () => {
+    dispatch({ type: "LOGIN" });
+    navigate("/productSelection");
+  };
+  const logout = () => {
+    dispatch({ type: "LOGOUT" });
+    navigate("/");
+  };
+
   return (
     <div className="container">
-      {pathname !== "/" && (
+      {isLoggedIn && (
         <>
           <header className="between">
             <button
@@ -66,7 +88,9 @@ export const Layout = () => {
               >
                 Next
               </button>
-              <button className="red icon">|||</button>
+              <button className="red icon" onClick={logout}>
+                |||
+              </button>
             </div>
           </header>
           <div className="breadcrumb">
@@ -82,10 +106,10 @@ export const Layout = () => {
         </>
       )}
       <main>
-        <Outlet context={{ ...state, setHeader }} />
+        <Outlet context={{ ...state, setHeader, login, logout }} />
       </main>
 
-      {pathname !== "/" && (
+      {isLoggedIn && (
         <footer className="between">
           <button
             className={cx("red", { hide: !prevUrl })}

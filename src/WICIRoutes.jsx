@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ErrorPage } from "./errorPage";
 import { Layout } from "./layout";
+import { PrivateRoute } from "./layout/PrivateRoute";
 import { ApplicantInfo } from "./pages/ApplicantInfo";
 import { Confirmation } from "./pages/Confirmation";
 import { ContactInfo } from "./pages/ContactInfo";
@@ -24,35 +25,67 @@ export const WICIRoutes = () => {
         },
         {
           path: "/productSelection",
-          element: <ProductSelection />,
+          element: (
+            <PrivateRoute>
+              <ProductSelection />
+            </PrivateRoute>
+          ),
         },
         {
           path: "/contactInfo",
-          element: <ContactInfo />,
+          element: (
+            <PrivateRoute>
+              <ContactInfo />
+            </PrivateRoute>
+          ),
         },
         {
           path: "/applicantInfo",
-          element: <ApplicantInfo />,
+          element: (
+            <PrivateRoute>
+              <ApplicantInfo />
+            </PrivateRoute>
+          ),
         },
         {
           path: "/financialInfo",
-          element: <FinancialInfo />,
+          element: (
+            <PrivateRoute>
+              <FinancialInfo />
+            </PrivateRoute>
+          ),
         },
         {
           path: "/supplementaryCard",
-          element: <SupplementaryCard />,
+          element: (
+            <PrivateRoute>
+              <SupplementaryCard />
+            </PrivateRoute>
+          ),
         },
         {
           path: "/optionalProduct",
-          element: <OptionalProduct />,
+          element: (
+            <PrivateRoute>
+              <OptionalProduct />
+            </PrivateRoute>
+          ),
         },
         {
           path: "/mobilePayment",
-          element: <MobilePayment />,
+          element: (
+            <PrivateRoute>
+              <MobilePayment />
+            </PrivateRoute>
+          ),
         },
         {
           path: "/confirmation",
-          element: <Confirmation />,
+          element: (
+            <PrivateRoute>
+              <Confirmation />
+            </PrivateRoute>
+          ),
         },
       ],
     },

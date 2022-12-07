@@ -6,7 +6,7 @@ export const ProductSelection = () => {
 
   useEffect(() => {
     setHeader({
-      prevUrl: "/",
+      prevUrl: null,
       nextUrl: "/contactInfo",
     });
   }, []);

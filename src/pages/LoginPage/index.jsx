@@ -1,11 +1,13 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useId } from "react";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import cx from "classnames";
 import s from "./login.module.scss";
 import { SlidingCheckbox } from "../../components/SlidingCheckbox";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
+  const loginId = useId();
+  const { login } = useOutletContext();
   const [lang, setLang] = useState("En");
   const [isTraining, setIsTraining] = useState(false);
 
@@ -13,8 +15,8 @@ export const LoginPage = () => {
     <div className={cx("stack", s.loginPage)}>
       <div align="right">
         <SlidingCheckbox
-          id="lang"
-          checked={lang === "En"}
+          id={loginId + "-lang"}
+          checked={lang === "Fr"}
           onChange={() => setLang((l) => (l === "En" ? "Fr" : "En"))}
           uncheckedJsx={"En"}
           checkedJsx={"Fr"}
@@ -47,7 +49,7 @@ export const LoginPage = () => {
           <tr>
             <td>Emp First Name</td>
             <td>
-              <input type="text" />
+              <input type="text" className="error" />
             </td>
           </tr>
           <tr>
@@ -59,15 +61,15 @@ export const LoginPage = () => {
           <tr>
             <td>Employee Number</td>
             <td>
-              <input type="text" />
+              <input type="text" className="error" />
             </td>
           </tr>
         </tbody>
       </table>
       <div align="center">
         <SlidingCheckbox
-          id="trainingMode"
-          checked={!isTraining}
+          id={loginId + "-trainingMode"}
+          checked={isTraining}
           onChange={() => setIsTraining((s) => !s)}
           uncheckedJsx={"APP"}
           checkedJsx={"TRAINING"}
@@ -92,7 +94,7 @@ export const LoginPage = () => {
           </tbody>
         </table>
       )}
-      <button className="green" onClick={() => navigate("/productSelection")}>
+      <button className="green" onClick={login}>
         {isTraining ? "Start Training" : "Login"}
       </button>
     </div>
