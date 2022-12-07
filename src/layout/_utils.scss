@@ -76,9 +76,12 @@ button {
 }
 
 .table {
-  border: 1px solid #aaa;
   border-collapse: collapse;
   background: #fff;
+  border-radius: 4px;
+  border-style: hidden;
+  box-shadow: 0 0 0 1px #aaa;
+  overflow: hidden;
 
   td {
     border: 1px solid #aaa;

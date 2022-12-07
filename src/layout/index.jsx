@@ -47,53 +47,60 @@ export const Layout = () => {
 
   return (
     <div className="container">
-      <header className="between">
-        <button
-          className={cx("red", { hide: !prevUrl })}
-          onClick={() => navigate(prevUrl || "/")}
-        >
-          Prev
-        </button>
-        <div className="inline g0">
-          <img src="/bank.png" alt="logo" className="logo" /> <h1>Bank</h1>
-        </div>
-        <div className="inline">
+      {pathname !== "/" && (
+        <>
+          <header className="between">
+            <button
+              className={cx("red", { hide: !prevUrl })}
+              onClick={() => navigate(prevUrl || "/")}
+            >
+              Prev
+            </button>
+            <div className="inline g0">
+              <img src="/bank.png" alt="logo" className="logo" /> <h1>Bank</h1>
+            </div>
+            <div className="inline">
+              <button
+                className={cx("red", { hide: !nextUrl })}
+                onClick={() => navigate(nextUrl || "/")}
+              >
+                Next
+              </button>
+              <button className="red icon">|||</button>
+            </div>
+          </header>
+          <div className="breadcrumb">
+            {REVERSED_BREADCRUMB_LINKS.map(({ url, label }) => (
+              <div
+                key={url}
+                className={cx("link", { active: pathname === url })}
+              >
+                {label}
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+      <main>
+        <Outlet context={{ ...state, setHeader }} />
+      </main>
+
+      {pathname !== "/" && (
+        <footer className="between">
+          <button
+            className={cx("red", { hide: !prevUrl })}
+            onClick={() => navigate(prevUrl || "/")}
+          >
+            Prev
+          </button>
           <button
             className={cx("red", { hide: !nextUrl })}
             onClick={() => navigate(nextUrl || "/")}
           >
             Next
           </button>
-          <button className="red icon">|||</button>
-        </div>
-      </header>
-      {pathname !== "/" && (
-        <div className="breadcrumb">
-          {REVERSED_BREADCRUMB_LINKS.map(({ url, label }) => (
-            <div key={url} className={cx("link", { active: pathname === url })}>
-              {label}
-            </div>
-          ))}
-        </div>
+        </footer>
       )}
-      <main>
-        <Outlet context={{ ...state, setHeader }} />
-      </main>
-
-      <footer className="between">
-        <button
-          className={cx("red", { hide: !prevUrl })}
-          onClick={() => navigate(prevUrl || "/")}
-        >
-          Prev
-        </button>
-        <button
-          className={cx("red", { hide: !nextUrl })}
-          onClick={() => navigate(nextUrl || "/")}
-        >
-          Next
-        </button>
-      </footer>
     </div>
   );
 };
