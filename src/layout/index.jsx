@@ -67,7 +67,7 @@ export const Layout = () => {
           <button className="red icon">|||</button>
         </div>
       </header>
-      {pathname !== "/login" && (
+      {pathname !== "/" && (
         <div className="breadcrumb">
           {REVERSED_BREADCRUMB_LINKS.map(({ url, label }) => (
             <div key={url} className={cx("link", { active: pathname === url })}>

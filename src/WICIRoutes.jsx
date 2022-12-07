@@ -19,7 +19,7 @@ export const WICIRoutes = () => {
       errorElement: <ErrorPage />,
       children: [
         {
-          path: "/login",
+          path: "/",
           element: <LoginPage />,
         },
         {

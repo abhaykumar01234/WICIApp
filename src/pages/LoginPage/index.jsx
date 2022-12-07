@@ -1,17 +1,9 @@
-import { useEffect } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import cx from "classnames";
 import s from "./login.module.scss";
 
 export const LoginPage = () => {
-  const { setHeader } = useOutletContext();
-
-  useEffect(() => {
-    setHeader({
-      prevUrl: null,
-      nextUrl: "/productSelection",
-    });
-  }, []);
+  const navigate = useNavigate();
 
   return (
     <div className={cx("stack", s.loginPage)}>
@@ -58,7 +50,9 @@ export const LoginPage = () => {
           </tr>
         </tbody>
       </table>
-      <button className="green">Login</button>
+      <button className="green" onClick={() => navigate("/productSelection")}>
+        Login
+      </button>
     </div>
   );
 };
