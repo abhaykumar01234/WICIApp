@@ -28,6 +28,24 @@
   }
 }
 
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  &.g0 {
+    gap: 0;
+  }
+
+  &.g1 {
+    gap: 1rem;
+  }
+
+  &.g2 {
+    gap: 1.5rem;
+  }
+}
+
 button {
   border: none;
   outline: none;
@@ -44,6 +62,8 @@ button {
 
   &.green {
     background: #080;
+    padding: 1.25rem;
+    font-size: 1rem;
   }
 
   &.icon {
@@ -52,5 +72,34 @@ button {
 
   &.hide {
     visibility: hidden;
+  }
+}
+
+.table {
+  border: 1px solid #aaa;
+  border-collapse: collapse;
+  background: #fff;
+
+  td {
+    border: 1px solid #aaa;
+
+    &:first-child {
+      background: #dedede;
+      width: 50%;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+    }
+  }
+}
+
+input[type="text"] {
+  border: none;
+  outline: none;
+  height: 35px;
+  width: 100%;
+  padding: 0 1rem;
+
+  &.error {
+    border: 1px solid #f00;
   }
 }

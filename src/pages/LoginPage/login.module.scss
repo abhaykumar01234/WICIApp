@@ -1,0 +1,15 @@
+.loginPage {
+  padding-inline: 150px;
+  gap: 40px;
+
+  .banner {
+    justify-content: center;
+    .logo {
+      max-height: 150px;
+    }
+    h1 {
+      font-size: 4em;
+      transform: translateX(-30px);
+    }
+  }
+}

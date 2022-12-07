@@ -11,12 +11,13 @@ body {
 }
 
 .container {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+  min-height: 100dvh;
 
   & > * {
-    padding: 0.5rem max(calc(50vw - 350px), 1rem);
+    padding: 0.5rem max(calc(50vw - 450px), 1rem);
   }
 
   & > header .logo {
@@ -29,7 +30,72 @@ body {
     color: #fff;
   }
 
+  .breadcrumb {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 2px;
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    padding-block: 0;
+    height: 50px;
+    font-size: 12px;
+
+    .link {
+      flex-grow: 1;
+      background: #fff;
+      padding-block: 0.5rem;
+      padding-left: 40px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      text-align: center;
+
+      &.active {
+        color: #900;
+      }
+
+      &.active ~ .link {
+        color: #900;
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0;
+        border: 25px solid transparent;
+      }
+
+      &::before {
+        left: 0;
+        border-left-color: #e5e5e5;
+      }
+
+      &::after {
+        left: 100%;
+        border-left-color: #fff;
+        z-index: 2;
+      }
+
+      &:last-child {
+        padding-left: 0.5rem;
+      }
+
+      &:first-child {
+        padding-right: 0.5rem;
+      }
+
+      &:last-child::before,
+      &:first-child:after {
+        display: none;
+      }
+    }
+  }
+
   & > main {
-    background: #e5e5e5;
+    flex-grow: 1;
+    background: #f5f5f5;
   }
 }

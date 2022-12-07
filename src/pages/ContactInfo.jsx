@@ -1,13 +1,13 @@
 import { useEffect } from "react";
-import { useGlobalCtx } from "../context/GlobalProvider";
+import { useOutletContext } from "react-router-dom";
 
 export const ContactInfo = () => {
-  const { setHeader } = useGlobalCtx();
+  const { setHeader } = useOutletContext();
 
   useEffect(() => {
     setHeader({
       prevUrl: "/productSelection",
-      nextUrl: "/financialInfo",
+      nextUrl: "/applicantInfo",
     });
   }, []);
 

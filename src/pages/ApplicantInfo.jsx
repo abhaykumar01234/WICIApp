@@ -1,15 +1,15 @@
 import { useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 
-export const OptionalProduct = () => {
+export const ApplicantInfo = () => {
   const { setHeader } = useOutletContext();
 
   useEffect(() => {
     setHeader({
-      prevUrl: "/supplementaryCard",
-      nextUrl: "/mobilePayment",
+      prevUrl: "/contactInfo",
+      nextUrl: "/financialInfo",
     });
   }, []);
 
-  return <div>OptionalProduct</div>;
+  return <div>ApplicantInfo</div>;
 };
