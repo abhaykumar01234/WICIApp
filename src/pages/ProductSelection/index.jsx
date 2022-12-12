@@ -11,5 +11,9 @@ export const ProductSelection = () => {
     });
   }, []);
 
-  return <div>ProductSelection</div>;
+  return (
+    <div>
+      <h3>ProductSelection</h3>
+    </div>
+  );
 };

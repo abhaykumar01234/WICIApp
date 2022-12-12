@@ -33,6 +33,11 @@
   flex-direction: column;
   gap: 0.5rem;
 
+  &.alignCenter {
+    align-items: center;
+    text-align: center;
+  }
+
   &.g0 {
     gap: 0;
   }
@@ -43,6 +48,14 @@
 
   &.g2 {
     gap: 1.5rem;
+  }
+
+  &.g3 {
+    gap: 2rem;
+  }
+
+  &.g4 {
+    gap: 40px;
   }
 }
 
@@ -86,23 +99,118 @@ button {
   td {
     border: 1px solid #aaa;
 
+    &:first-child,
+    &.pad {
+      padding: 0.25rem 1rem;
+    }
+
     &:first-child {
       background: #dedede;
-      width: 50%;
       font-weight: bold;
-      padding: 0.5rem 1rem;
+
+      &.half {
+        width: 50%;
+      }
     }
   }
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select {
   border: none;
   outline: none;
   height: 35px;
   width: 100%;
-  padding: 0 1rem;
+  padding-inline: 1rem;
 
   &.error {
     border: 1px solid #f00;
+  }
+}
+
+.inputNumberField {
+  font-size: 12px;
+  button {
+    border-radius: 50%;
+  }
+  input[type="number"] {
+    width: 40px;
+    font-size: 12px;
+    text-align: center;
+    border: 1px solid #cecece;
+    outline: none;
+    padding: 0.5rem;
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+}
+
+.radioField,
+.checkboxField {
+  gap: 1rem;
+  & > * {
+    cursor: pointer;
+  }
+  input[type="radio"],
+  input[type="checkbox"] {
+    order: -1;
+    accent-color: #c00;
+    transform-origin: left;
+    transform: scale(2);
+  }
+
+  label {
+    padding-inline: 0.5rem;
+  }
+}
+
+.checkboxField {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+
+  input[type="checkbox"] {
+    transform-origin: 0% -2px;
+  }
+}
+
+.radioGroup {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  overflow: hidden;
+  margin-inline: auto;
+  list-style-type: none;
+  border: 1px solid #cecece;
+  background: #fff;
+  border-radius: 1rem;
+
+  li {
+    padding: 1rem;
+    position: relative;
+    font-size: 12px;
+
+    input[type="radio"] {
+      appearance: none;
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+    }
+
+    &.checked {
+      color: #fff;
+      background: #c00;
+    }
+
+    &:not(:last-child) {
+      border-right: 1px solid #cecece;
+    }
   }
 }

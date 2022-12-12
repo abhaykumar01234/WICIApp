@@ -20,6 +20,11 @@ body {
     padding: 0.5rem max(calc(50vw - 450px), 1rem);
   }
 
+  & > header {
+    position: sticky;
+    top: 0;
+  }
+
   & > header .logo {
     max-height: 50px;
   }
@@ -28,9 +33,12 @@ body {
   & > footer {
     background: #333;
     color: #fff;
+    z-index: 10;
   }
 
   .breadcrumb {
+    position: sticky;
+    top: 66px;
     display: flex;
     flex-direction: row-reverse;
     gap: 2px;
@@ -39,21 +47,20 @@ body {
     padding-block: 0;
     height: 50px;
     font-size: 12px;
+    z-index: 10;
 
     .link {
       flex-grow: 1;
       background: #fff;
       padding-block: 0.5rem;
-      padding-left: 40px;
+      padding-left: 30px;
+      font-weight: 600;
       position: relative;
       display: flex;
       align-items: center;
       text-align: center;
 
-      &.active {
-        color: #900;
-      }
-
+      &.active,
       &.active ~ .link {
         color: #900;
       }
@@ -66,6 +73,7 @@ body {
         width: 0;
         height: 0;
         border: 25px solid transparent;
+        border-right-width: 0;
       }
 
       &::before {
@@ -98,4 +106,18 @@ body {
     flex-grow: 1;
     background: #f5f5f5;
   }
+}
+
+section.muted {
+  background: #e6e6e6;
+  padding: 1.5rem;
+  border-radius: 4px;
+}
+
+.w-600 {
+  padding-inline: calc(50% - 300px);
+}
+
+.w-700 {
+  padding-inline: calc(50% - 350px);
 }
