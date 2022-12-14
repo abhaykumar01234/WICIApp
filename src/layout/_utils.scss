@@ -184,18 +184,23 @@ select {
 .radioGroup {
   display: inline-flex;
   flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   overflow: hidden;
   margin-inline: auto;
   list-style-type: none;
   border: 1px solid #cecece;
-  background: #fff;
   border-radius: 1rem;
+  gap: 1px;
+  background: #cecece;
 
   li {
     padding: 1rem;
     position: relative;
     font-size: 12px;
+    flex-grow: 1;
+    background: #fff;
+    text-align: center;
 
     input[type="radio"] {
       appearance: none;
@@ -207,10 +212,6 @@ select {
     &.checked {
       color: #fff;
       background: #c00;
-    }
-
-    &:not(:last-child) {
-      border-right: 1px solid #cecece;
     }
   }
 }
