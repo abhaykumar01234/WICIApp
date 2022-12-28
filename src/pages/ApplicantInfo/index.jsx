@@ -136,14 +136,14 @@ export const ApplicantInfo = () => {
       <table className="table">
         <tbody>
           <tr>
-            <td className="half">Mortage & Rent Payment (per month)</td>
+            <td style={{ width: "40%" }}>Mortage & Rent Payment (per month)</td>
             <td>
               <input type="tel" name="mortage" />
             </td>
           </tr>
           <tr>
             <td>How long have you lived at your current address?</td>
-            <td className="inline pad">
+            <td className="inline wrap pad">
               <InputNumber id="yearLived" label="Years" />
               <InputNumber id="yearLived" label="Months" />
             </td>

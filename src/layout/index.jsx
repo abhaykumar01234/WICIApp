@@ -47,7 +47,13 @@ const BREADCRUMB_LINKS = [
   { url: "/confirmation", label: "Confirmation" },
 ];
 
-const REVERSED_BREADCRUMB_LINKS = BREADCRUMB_LINKS.reverse();
+const getMobileBreadcrumbs = (pathname) => {
+  const found = BREADCRUMB_LINKS.findIndex(({ url }) => url === pathname);
+  console.log(found);
+  if (found < -1) return [];
+
+  return BREADCRUMB_LINKS.slice(Math.max(found - 2, 0), found + 2).reverse();
+};
 
 export const Layout = () => {
   const navigate = useNavigate();
@@ -94,7 +100,10 @@ export const Layout = () => {
             </div>
           </header>
           <div className="breadcrumb">
-            {REVERSED_BREADCRUMB_LINKS.map(({ url, label }) => (
+            {(window.innerWidth > 730
+              ? BREADCRUMB_LINKS.reverse()
+              : getMobileBreadcrumbs(pathname)
+            ).map(({ url, label }) => (
               <div
                 key={url}
                 className={cx("link", { active: pathname === url })}

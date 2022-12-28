@@ -15,6 +15,10 @@
   align-items: center;
   gap: 0.5rem;
 
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
   &.g0 {
     gap: 0;
   }
@@ -132,10 +136,16 @@ select {
 }
 
 .inputNumberField {
+  flex: 0 1 180px;
   font-size: 12px;
-  button {
+  button.red.icon {
     border-radius: 50%;
+
+    &.dec {
+      margin-left: auto;
+    }
   }
+
   input[type="number"] {
     width: 40px;
     font-size: 12px;
