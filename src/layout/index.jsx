@@ -49,10 +49,14 @@ const BREADCRUMB_LINKS = [
 
 const getMobileBreadcrumbs = (pathname) => {
   const found = BREADCRUMB_LINKS.findIndex(({ url }) => url === pathname);
-  console.log(found);
   if (found < -1) return [];
+  if (found === BREADCRUMB_LINKS.length - 1)
+    return BREADCRUMB_LINKS.slice(-3).reverse();
 
-  return BREADCRUMB_LINKS.slice(Math.max(found - 2, 0), found + 2).reverse();
+  return BREADCRUMB_LINKS.slice(
+    Math.max(found - 1, 0),
+    Math.max(found + 2, 3)
+  ).reverse();
 };
 
 export const Layout = () => {
@@ -101,7 +105,7 @@ export const Layout = () => {
           </header>
           <div className="breadcrumb">
             {(window.innerWidth > 730
-              ? BREADCRUMB_LINKS.reverse()
+              ? [...BREADCRUMB_LINKS].reverse()
               : getMobileBreadcrumbs(pathname)
             ).map(({ url, label }) => (
               <div
