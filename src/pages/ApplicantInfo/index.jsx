@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
-import { InputNumber } from "../../components/InputNumber";
+import { InputCurrency } from "../../components/Input/InputCurrency";
+import { InputYearMonth } from "../../components/Input/InputYearMonth";
 import { RadioGroup } from "../../components/RadioGroup";
 import { SlidingCheckbox } from "../../components/SlidingCheckbox";
 
@@ -11,6 +12,11 @@ export const ApplicantInfo = () => {
     homeType: "",
     preferredLanguage: "",
     prevAddrInCanada: false,
+    timeLivedAtCurrAddress: {
+      years: 0,
+      months: 0,
+    },
+    rentPerMonth: "",
   });
 
   useEffect(() => {
@@ -138,14 +144,19 @@ export const ApplicantInfo = () => {
           <tr>
             <td style={{ width: "40%" }}>Mortage & Rent Payment (per month)</td>
             <td>
-              <input type="tel" name="mortage" />
+              <InputCurrency
+                value={applicantInfo.rentPerMonth}
+                onChange={(val) => handleChange("rentPerMonth", val)}
+              />
             </td>
           </tr>
           <tr>
             <td>How long have you lived at your current address?</td>
             <td className="inline wrap pad">
-              <InputNumber id="yearLived" label="Years" />
-              <InputNumber id="yearLived" label="Months" />
+              <InputYearMonth
+                value={applicantInfo.timeLivedAtCurrAddress}
+                onChange={(val) => handleChange("timeLivedAtCurrAddress", val)}
+              />
             </td>
           </tr>
           <tr>

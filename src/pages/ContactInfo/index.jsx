@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 import { Radio } from "../../components/Radio";
 import { Checkbox } from "../../components/Checkbox";
+import { InputPhone } from "../../components/Input/InputPhone";
 
 export const ContactInfo = () => {
   const { setHeader } = useOutletContext();
@@ -35,8 +36,7 @@ export const ContactInfo = () => {
           <tr>
             <td className="half">Primary Phone</td>
             <td>
-              <input
-                type="tel"
+              <InputPhone
                 name="primary"
                 value={contactData.primary}
                 onChange={handleChange}
@@ -68,8 +68,7 @@ export const ContactInfo = () => {
           <tr>
             <td className="half">Secondary Phone</td>
             <td>
-              <input
-                type="tel"
+              <InputPhone
                 name="secondary"
                 value={contactData.secondary}
                 onChange={handleChange}
