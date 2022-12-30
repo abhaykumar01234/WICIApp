@@ -26,11 +26,19 @@ export const ContactInfo = () => {
 
   return (
     <div className="stack g3 w-700">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
-        pariatur nostrum eum ab veritatis similique cum adipisci dolor natus
-        sit?
-      </p>
+      <div className="stack g1">
+        <h2>Contact Information</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+          pariatur nostrum eum ab veritatis similique cum adipisci dolor natus
+          sit?
+        </p>
+        <h4>What's your number?</h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque dolore
+          ratione maxime neque corrupti error.
+        </p>
+      </div>
       <table className="table">
         <tbody>
           <tr>
@@ -151,6 +159,36 @@ export const ContactInfo = () => {
           </div>
         }
       />
+      <section className="inverted g2 inline">
+        <span style={{ fontSize: "5em", lineHeight: "0.001" }}>&#9098;</span>
+        Get a $5 CT Money Bonus when you sign up Offers
+      </section>
+      <section className="muted">
+        <Checkbox
+          id="footer"
+          label={
+            <div className="stack g1">
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla
+                provident magni porro saepe libero nesciunt ipsam vero a!
+                Repudiandae deserunt voluptate error illum aut. Dolores odio
+                cumque possimus beatae natus qui porro pariatur, saepe soluta
+                recusandae? Nam unde quia rerum!
+              </p>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Similique eius sunt assumenda blanditiis minima tempora,
+                voluptas nihil eligendi aliquid! Necessitatibus excepturi
+                quaerat labore asperiores iste magnam quae minima, natus nihil
+                architecto ducimus repudiandae odit nostrum iusto voluptatibus
+                numquam repellendus pariatur, nisi deleniti atque? Quos,
+                mollitia rem laboriosam expedita non autem, tenetur qui, maiores
+                ipsa officia exercitationem eius repellat magni provident.
+              </p>
+            </div>
+          }
+        />
+      </section>
     </div>
   );
 };
