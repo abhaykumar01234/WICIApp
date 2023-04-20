@@ -4,6 +4,7 @@ import { InputCurrency } from "../../components/Input/InputCurrency";
 import { InputYearMonth } from "../../components/Input/InputYearMonth";
 import { RadioGroup } from "../../components/RadioGroup";
 import { SlidingCheckbox } from "../../components/SlidingCheckbox";
+import { AddressSelect } from "../../components/AddressSelect";
 
 export const ApplicantInfo = () => {
   const { setHeader } = useOutletContext();
@@ -18,6 +19,15 @@ export const ApplicantInfo = () => {
     },
     rentPerMonth: "",
   });
+
+  const [selectedAddress, setSelectedAddress] = useState({});
+
+  const handleAddress = (address) => {
+    console.log(address.Id);
+    console.log(address.Text);
+    console.log(address.Description);
+    setSelectedAddress(address);
+  };
 
   useEffect(() => {
     setHeader({
@@ -115,6 +125,11 @@ export const ApplicantInfo = () => {
           </tr>
         </tbody>
       </table>
+      <section className="muted stack g1">
+        <h3>Current Mailing Address</h3>
+        <AddressSelect onChange={handleAddress} />
+        <pre>{JSON.stringify(selectedAddress, null, 2)}</pre>
+      </section>
       <section className="muted stack g1">
         <h3>Title</h3>
         <RadioGroup

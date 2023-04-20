@@ -1,0 +1,33 @@
+.dropdownWrapper {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  list-style-type: none;
+  background: #fff;
+  width: 100%;
+  max-height: 245px;
+  overflow-y: scroll;
+  display: none;
+  z-index: 500;
+
+  &.open {
+    display: block;
+  }
+
+  & > li {
+    height: 35px;
+    padding-inline: 16px;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:hover {
+      background: lightblue;
+      cursor: pointer;
+    }
+  }
+}

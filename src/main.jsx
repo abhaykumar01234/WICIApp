@@ -2,8 +2,4 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { WICIRoutes } from "./WICIRoutes";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <WICIRoutes />
-  </React.StrictMode>
-);
+ReactDOM.createRoot(document.getElementById("root")).render(<WICIRoutes />);
