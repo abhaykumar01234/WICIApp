@@ -2,6 +2,7 @@ import { useReducer } from "react";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import cx from "classnames";
 import "./global.scss";
+import CheckIdleActivity from "../components/CheckIdleActivity";
 
 const initialState = {
   prevUrl: null,
@@ -116,6 +117,7 @@ export const Layout = () => {
               </div>
             ))}
           </div>
+          <CheckIdleActivity />
         </>
       )}
       <main>
