@@ -22,8 +22,7 @@ export const InputCurrency = ({
     onChange(formatCurrency(value));
     onBlur();
   };
-  const handleChange = (e) =>
-    isFinite(Number(e.target.value)) && onChange(e.target.value);
+  const handleChange = (e) => onChange(e.target.value);
 
   return (
     <input

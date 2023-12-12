@@ -160,7 +160,7 @@ export const ApplicantInfo = () => {
             <td style={{ width: "40%" }}>Mortage & Rent Payment (per month)</td>
             <td>
               <InputCurrency
-                value={applicantInfo.rentPerMonth}
+                value={applicantInfo.rentPerMonth || 123456.78908}
                 onChange={(val) => handleChange("rentPerMonth", val)}
               />
             </td>

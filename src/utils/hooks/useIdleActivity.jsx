@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const TEN_MINUTES = 10 * 1000;
+const TEN_MINUTES = 10 * 60 * 1000;
 const whiteListedUrls = ["/", "/productSelection"];
 
 export const useIdleActivity = () => {
